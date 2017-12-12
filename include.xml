@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<ndll name="firebase" if="ios || android" />
+
+	<section if="ios">
+		<dependency path="dependencies/ios/Analytics/FirebaseCore.framework" />
+		<dependency path="dependencies/ios/Analytics/FirebaseAnalytics.framework" />
+		<dependency path="dependencies/ios/Analytics/FirebaseInstanceID.framework" />
+		<dependency path="dependencies/ios/Analytics/FirebaseMessaging.framework" />
+		<dependency path="dependencies/ios/Analytics/GoogleInterchangeUtilities.framework" />
+		<dependency path="dependencies/ios/Analytics/GoogleSymbolUtilities.framework" />
+		<dependency path="dependencies/ios/Analytics/GoogleToolboxForMac.framework" />
+		<dependency path="dependencies/ios/Analytics/Protobuf.framework" />
+		<dependency name="UserNotifications.framework" />
+		<dependency name="libsqlite3.tbd" />
+		<ios linker-flags="-ObjC" />
+	</section>
+
+	<dependency name="firebase" path="dependencies/android" if="android" />
+	<android extension="extension.java.Firebase" />
+
+</project>

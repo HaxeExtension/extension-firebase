@@ -1,0 +1,13 @@
+{
+  "name": "extension_firebase",
+  "url": "",
+  "license": "MIT",
+  "tags": [],
+  "description": "",
+  "version": "0.9.0",
+  "releasenote": "",
+  "contributors": [""],
+  "dependencies": {
+
+  }
+}
