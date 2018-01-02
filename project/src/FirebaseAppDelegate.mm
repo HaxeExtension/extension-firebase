@@ -21,6 +21,8 @@
 
 NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
+NSString* firebaseInstanceIdToken = @"";
+
 + (instancetype)sharedInstance
 {
   static FirebaseAppDelegate *_sharedInstance;
@@ -97,6 +99,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     NSLog(@"FirebaseAppDelegate: didRefreshRegistrationToken FCM registration token: %@", fcmToken);
 
     // If necessary send token to application server.
+
+    firebaseInstanceIdToken = fcmToken;
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -108,6 +112,9 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 // the FCM registration token.
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"FirebaseAppDelegate: didRegisterForRemoteNotificationsWithDeviceToken token: %@", deviceToken);
+
+
+    firebaseInstanceIdToken = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
 
     // With swizzling disabled you must set the APNs device token here.
     // [Messaging messaging].APNSToken = deviceToken;
@@ -140,6 +147,10 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"%@", userInfo);
 
     completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (NSString*)getInstanceIDToken {
+    return firebaseInstanceIdToken;
 }
 
 @end

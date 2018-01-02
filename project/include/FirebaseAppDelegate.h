@@ -11,6 +11,8 @@
 
 - (BOOL)sendFirebaseAnalyticsEvent:(NSString*)eventName jsonPayload:(NSString *)jsonPayload;
 
+- (NSString*)getInstanceIDToken;
+
 @end
 
 #endif

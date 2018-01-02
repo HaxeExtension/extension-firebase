@@ -56,5 +56,11 @@ public class Firebase extends Extension {
 		firebaseAnalytics.logEvent(eventName, payloadBundle);
 	}
 
+	public static String getInstanceIDToken() {
+		String idToken = FirebaseInstanceId.getInstance().getToken();
+		Log.i("trace","Firebase.java: getInstanceIDToken= " + idToken);
+
+		return idToken;
+	}
 
 }

@@ -12,6 +12,9 @@ namespace extension_ios_firebase {
     static value sendFirebaseAnalyticsEvent(value eventName, value jsonPayload);
     DEFINE_PRIM(sendFirebaseAnalyticsEvent, 2);
 
+    static value getInstanceIDToken();
+    DEFINE_PRIM(getInstanceIDToken, 0);
+
 }
 
 #endif
