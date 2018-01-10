@@ -39,6 +39,6 @@ class Firebase {
 
 	#if (android)
 	private static var extension_firebase_send_analytics_event = JNI.createStaticMethod("extension.java.Firebase", "sendFirebaseAnalyticsEvent", "(Ljava/lang/String;Ljava/lang/String;)V");
-	private static var extension_firebase_get_instance_id_token = JNI.createStaticMethod("extension.java.Firebase", "getInstanceIDToken", "()Ljava/lang/String;Ljava/lang/String;");
+	private static var extension_firebase_get_instance_id_token = JNI.createStaticMethod("extension.java.Firebase", "getInstanceIDToken", "()Ljava/lang/String;");
 	#end
 }
